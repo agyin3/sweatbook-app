@@ -1,12 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Welcome from './containers/Welcome.js'
+import { Provider } from 'react-redux';
+import { store } from './store/store.js'
+import TabView from './containers/TabView.js'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+
+export default class App extends Component {
+  constructor(){
+    super()
+      this.state = {
+        started: false
+      }
+  }
+
+  startWorkout = () => {
+    this.setState({started: true})
+  }
+
+  renderRoot(ComponentToRender){
+    return(
+      <Provider store={store}>
+        <ComponentToRender startWorkout={this.startWorkout} />
+      </Provider>
+    )
+  }
+
+  render(){
+    const { started } = this.state
+    return started ? this.renderRoot(TabView) : this.renderRoot(Welcome)
+  };
 }
 
 const styles = StyleSheet.create({
