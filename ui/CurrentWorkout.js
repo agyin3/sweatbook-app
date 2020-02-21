@@ -57,18 +57,23 @@ const styles = StyleSheet.create({
         flex: 0.1
       },
       heroText: {
-        fontSize: 30,
-        marginBottom: 10
+        fontSize: 40,
+        marginBottom: 10,
+        fontFamily: 'MarkerFelt-Wide',
+        color: '#214694'
       },
       textContainer: {
         flex: 0.8
       },
       mainText: {
-        fontSize: 45,
-        textAlign: 'center'
+        fontSize: 55,
+        textAlign: 'center',
+        fontFamily: 'MarkerFelt-Thin',
+        color: '#214694'
       },
       addButton: {
         textAlign: 'center',
-        fontSize: 90
+        fontSize: 90,
+        color: '#fff'
       }
 })
