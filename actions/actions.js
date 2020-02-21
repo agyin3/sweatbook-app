@@ -1,4 +1,3 @@
-import { createAction } from 'redux-actions'
 import * as types from './types.js'
 
 export const setExerciseModalVisibilty = (visible) => dispatch =>  {
