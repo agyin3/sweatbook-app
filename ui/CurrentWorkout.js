@@ -9,6 +9,7 @@ import {
 import { TopBar } from './TopBar'
 import { setExerciseModalVisibilty } from '../actions/actions'
 import { useDispatch, useSelector } from 'react-redux'
+import { LinearGradient } from 'expo-linear-gradient'
 
 const { width } = Dimensions.get('window')
 
@@ -16,7 +17,10 @@ export const CurrentWorkout = () => {
     const ui = useSelector(({ui}) => ui.exerciseModal)
     const dispatch = useDispatch()
     return(
-        <View style={styles.container}>
+        <LinearGradient 
+          style={styles.container}
+          colors={['#65C7F7', '#054A91']}
+        >
             <TopBar style={styles.topBar}>
                 <Text style={styles.heroText}>
                     Current Workout
@@ -32,7 +36,7 @@ export const CurrentWorkout = () => {
                     </Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </LinearGradient>
     )
 }
 
