@@ -5,7 +5,10 @@ import MainSVG from '../assets/MainSVG'
 
 const Welcome = ({startWorkout}) => {
     return(
-        <View style={styles.container}>
+        <LinearGradient
+            style={styles.container}
+            colors={['#9CECFB', '#65C7F7', '#0052D4']}
+        >
             <View style={styles.heroContainer}>
                 <Text style={styles.heroTitle}>
                     Sweatbook
@@ -17,12 +20,12 @@ const Welcome = ({startWorkout}) => {
             <MainSVG />
             <View>
                 <TouchableOpacity style={styles.startButton} onPress={startWorkout}>
-                    <LinearGradient colors={['#673AB7', '#512DA8']} style={styles.gradient}>
+                    <LinearGradient colors={['#3E7CB1', '#054A91']} style={styles.gradient}>
                         <Text style={styles.buttonText}>Start Workout</Text>
                     </LinearGradient>
                 </TouchableOpacity>
             </View>
-        </View>
+        </LinearGradient>
     )
 }
 
@@ -37,16 +40,19 @@ const styles = StyleSheet.create({
         paddingTop: 100
       },
       heroContainer: {
-          flex: 0.3,
+          flex: 0.5,
           justifyContent: 'space-between',
           alignItems: 'center',
       },
     heroTitle: {
-        fontSize: 50,
-        color: 'blue'
+        fontSize: 60,
+        color: '#214694',
+        fontFamily: 'MarkerFelt-Wide',
     },
     heroText: {
         fontSize: 25,
+        fontFamily: 'MarkerFelt-Thin',
+        color: '#215E94'
     },
     startButton: {
         flex: 0.3,
@@ -66,7 +72,8 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: '800',
         backgroundColor: 'transparent',
-        color: '#fff'
+        color: '#fff',
+        fontFamily: 'Marker Felt'
     }
 })
 
