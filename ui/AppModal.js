@@ -11,7 +11,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faSearch, faArrowDown, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { useSelector, useDispatch } from 'react-redux'
 import { TopBar } from './TopBar'
-import { setExerciseModalVisibilty } from '../actions/actions'
+import { setExerciseModalVisibilty, filterExercises } from '../actions/actions'
+import { ExerciseList } from './ExerciseList'
 
 const { height, width } = Dimensions.get('window')
 export const AppModal = () => {
@@ -19,8 +20,9 @@ export const AppModal = () => {
     const dispatch = useDispatch()
     const [search, setSearch] = useState('')
 
-    const handleChange = e => {
-        setSearch(e.target.value)
+    const handleChange = (text) => {
+        setSearch(text)
+        dispatch(filterExercises(text))
     }
     return (
             <Modal
@@ -35,7 +37,7 @@ export const AppModal = () => {
                         <TextInput 
                             style={styles.modalInput} 
                             placeholder='Search' 
-                            onChange={handleChange} 
+                            onChangeText={(text) => handleChange(text)}
                             value={search}
                         />
                     </View>
@@ -45,6 +47,7 @@ export const AppModal = () => {
                             onPress={() => dispatch(setExerciseModalVisibilty(!visible))} 
                     />
                 </TopBar>
+                <ExerciseList />
             </Modal>
     )
 }
